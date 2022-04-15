@@ -6,9 +6,7 @@ import java.lang.*;         // for String class
 import java.io.*; 
 import java.util.Calendar;
 import java.security.MessageDigest;
-
-	
-
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class DB2IRRUtil extends UDF{
 public static long diffdays(Calendar a,Calendar b) throws Exception

@@ -1,6 +1,6 @@
 import COM.ibm.db2.app.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.CopyOnWriteArrayList;
 import java.util.List;
 import java.lang.*;         // for String class
 import java.io.*; 
@@ -63,7 +63,7 @@ public static long diffdays30(Calendar a,Calendar b) throws Exception
 	{
 		
 		try{
-			List<business> list=new ArrayList<business>();
+			List<business> list=new CopyOnWriteArrayList<business>();
 			list=cashflow(dealdate, maturitydate,cycle_m,expirydate,dealamount,rate);
 			return Xirr(list);
 		}
@@ -76,7 +76,7 @@ public static long diffdays30(Calendar a,Calendar b) throws Exception
  public static List<business> cashflow(Integer paybackdates[],Double paybackcashs[])
  {
 	 try {
-		 List<business> list=new ArrayList<business>();
+		 List<business> list=new CopyOnWriteArrayList<business>();
 		 int j=paybackdates.length;
 		 if(j!=paybackcashs.length) return null;
 		 for(int i=0;i<j;i++)
@@ -95,7 +95,7 @@ public static long diffdays30(Calendar a,Calendar b) throws Exception
  public static List<business> cashflow(int dealdate,double dealamount,Integer paybackdates[],Double paybackcashs[])
  {
 	 try {
-		 List<business> list=new ArrayList<business>();
+		 List<business> list=new CopyOnWriteArrayList<business>();
 		 business b=new business(dealdate,dealamount);
 		 list.add(b);
 		 int j=paybackdates.length;
@@ -115,7 +115,7 @@ public static long diffdays30(Calendar a,Calendar b) throws Exception
  public static List<business> cashflow(Integer dealdate,Integer maturitydate,Integer cycle,Integer expirydate, double dealamount,double rate)
  {
 	 try {
-		 List<business> list=new ArrayList<business>();
+		 List<business> list=new CopyOnWriteArrayList<business>();
 		 business b=new business(dealdate,dealamount*-1);
 		 list.add(b);
 		 Calendar startdate = Calendar.getInstance();
@@ -149,7 +149,7 @@ public static long diffdays30(Calendar a,Calendar b) throws Exception
  public static List<business> cashflow301(Integer dealdate,Integer maturitydate,Integer cycle,Integer Repaymenttimes,Integer expirydate, double dealamount,double rate)
  {
 	 try {
-		 List<business> list=new ArrayList<business>();
+		 List<business> list=new CopyOnWriteArrayList<business>();
 		 business b=new business(dealdate,dealamount*-1);
 		 list.add(b);
 		 Calendar startdate = Calendar.getInstance();
@@ -189,7 +189,7 @@ public static long diffdays30(Calendar a,Calendar b) throws Exception
  public static List<business> cashflow302(Integer dealdate,Integer maturitydate,Integer cycle,Integer Repaymenttimes,Integer expirydate, double dealamount,double rate)
  {
 	 try {
-		 List<business> list=new ArrayList<business>();
+		 List<business> list=new CopyOnWriteArrayList<business>();
 		 business b=new business(dealdate,dealamount*-1);
 		 list.add(b);
 		 Calendar startdate = Calendar.getInstance();
@@ -371,7 +371,7 @@ public static long diffdays30(Calendar a,Calendar b) throws Exception
 		try{
 			Integer[] paybackdates = (Integer [])inputpaybackdates.getArray();
 			Double[] paybackcashs=(Double [])inputpaybackcashs.getArray();
-			List<business> list=new ArrayList<business>();
+			List<business> list=new CopyOnWriteArrayList<business>();
 			list=cashflow(dealdate,dealamount,paybackdates, paybackcashs);
 			XIRR[0] =Xirr(list);
 			return;
@@ -388,7 +388,7 @@ public static long diffdays30(Calendar a,Calendar b) throws Exception
 		try{
 			Integer[] paybackdates = (Integer [])inputpaybackdates.getArray();
 			Double[] paybackcashs=(Double [])inputpaybackcashs.getArray();
-			List<business> list=new ArrayList<business>();
+			List<business> list=new CopyOnWriteArrayList<business>();
 			list=cashflow(paybackdates, paybackcashs);
 			XIRR[0] =Xirr(list);
 			return;

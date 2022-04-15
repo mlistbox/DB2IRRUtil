@@ -1,6 +1,5 @@
 import COM.ibm.db2.app.*;
 import java.math.BigDecimal;
-import java.util.CopyOnWriteArrayList;
 import java.util.List;
 import java.lang.*;         // for String class
 import java.io.*; 
